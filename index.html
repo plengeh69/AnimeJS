@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>AnimeJS</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section>
+            <h2 class="text">AnimeJS Text Animation Effects</h2>
+        </section>
+        <script src="anime.min.js"></script>
+        <script>
+            const text = document.querySelector('.text');
+            text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+
+            anime.timeline({
+                loop: true
+            })
+
+            .add({
+                targets: '.text span',
+                translateY: [-600, 0],
+                scale: [10,1],
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1500,
+                delay: anime.stagger(100),
+            })
+
+            .add({
+                targets: '.text span',
+                translateX: [0, -1000],
+                scale: [1,1],
+                opacity: [1,0],
+                easing: "easeOutExpo",
+                duration: 2000,
+                delay: anime.stagger(100),
+            })
+
+            .add({
+                targets: '.text span',
+                translateX: [1000, 0],
+                scale: [1,1],
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 2000,
+                delay: anime.stagger(100),
+            })
+
+            .add({
+                targets: '.text span',
+                translateX: [0, 0],
+                scale: [1,50],
+                opacity: [1,0],
+                easing: "easeOutExpo",
+                duration: 2000,
+                delay: anime.stagger(100),
+            })
+
+        </script>
+    </body>
+</html>
